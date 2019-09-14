@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-form',
@@ -8,12 +8,26 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class RegistrationFormComponent implements OnInit {
 
+  Salutions: any = ['Mrs.', 'Ms.', 'Miss.', 'Dr.', 'Mr.']
+
+  Familymembers: any = [1, 2, 3, 4, 5, 6]
+
   Country: any = ['INDIA']
 
+  permanentAddressArrayItem: {
+    doornumber: number,
+    street: string,
+    city: string,
+    zipCode: number
+  }[];
+
   tenantProfileForm = this.fb.group({
+    salutions: ['', [Validators.required]],
     firstName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
     lastName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
+    fatherName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
     phone: ['', [Validators.required, Validators.maxLength(10)]],
+    familyMembers: ['', [Validators.required]],
     address: ['', [Validators.required]],
     areaCode: ['', [Validators.required]],
     streetAddress: ['', [Validators.required]],
@@ -22,27 +36,47 @@ export class RegistrationFormComponent implements OnInit {
     state: ['', [Validators.required]],
     postal: ['', [Validators.required]],
     country: ['', [Validators.required]],
+
+
+    permanentAddressArray: this.fb.array([])
   })
 
+
+  permanentAddressFormGroup(): FormGroup {
+    return this.fb.group({
+      doornumber: ['', [Validators.required]]
+    })
+  }
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
+    this.permanentAddressArrayItem = [];
   }
 
   onSubmit() {
     console.warn(this.tenantProfileForm.value);
   }
 
+  get salutions() {
+    return this.tenantProfileForm.get('salutions');
+  }
   get firstName() {
     return this.tenantProfileForm.get('firstName');
   }
   get lastName() {
     return this.tenantProfileForm.get('lastName');
   }
+get fatherName(){
+  return this.tenantProfileForm.get('fatherName');
+}
   get phone() {
     return this.tenantProfileForm.get('phoneNumber');
   }
-  get address(){
+  get familyMembers(){
+    return this.tenantProfileForm.get('familyMembers');
+  }
+  get address() {
     return this.tenantProfileForm.get('address');
   }
   get areaCode() {
@@ -65,5 +99,8 @@ export class RegistrationFormComponent implements OnInit {
   }
   get country() {
     return this.tenantProfileForm.get('country');
+  }
+  get permanentAddressArray() {
+    return this.tenantProfileForm.get('permanentAddressArray') as FormArray;
   }
 }

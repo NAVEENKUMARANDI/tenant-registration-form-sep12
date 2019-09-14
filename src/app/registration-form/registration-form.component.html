@@ -5,18 +5,39 @@
         <div class="col-sm-6">
             <h2>Tenant Registration Form</h2>
         </div>
-        <div class="col-sm-5"></div>
     </div>
+    <div class="col-sm-5"></div>
 </div>
 
 <form [formGroup]="tenantProfileForm" (ngSubmit)="onSubmit()">
 
+    <!-----------------------SALUTIONS-------------------->
+
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-2">
+            <label for="salutions"> Salutations </label>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2">
+            <select formControlName="salutions">
+                <!--   <option value="">Choose your state</option> -->
+                <option *ngFor="let salutions of Salutions" [ngValue]="salutions" (change)="changeSalutions($event)">
+                    {{salutions}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
     <!-----------------------FIRST NAME-------------------->
 
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-3">
-            <label for="firstName"> First Name: * </label>
+            <label for="firstName"> First Name * </label>
         </div>
 
         <div class="col-sm-1"> </div>
@@ -30,13 +51,11 @@
                 </div>
 
                 <div *ngIf="firstName.errors?.minlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of
-                        FirstName is less than 5 chars. </span>
+                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of FirstName is less than 5 chars. </span>
                 </div>
 
                 <div *ngIf="firstName.errors?.maxlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of
-                        FirstName is more than 10 chars.
+                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of FirstName is more than 10 chars.
                     </span>
                 </div>
             </div>
@@ -52,7 +71,7 @@
         </div>
 
         <div class="col-sm-3">
-            <label for="lastName"> Last Name: *</label>
+            <label for="lastName"> Last Name *</label>
         </div>
 
         <div class="col-sm-1"></div>
@@ -79,15 +98,49 @@
     </div>
     <!--Last Name Ends -->
 
+    <!---------------Father Name------------------------>
+    <div class="row">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-3">
+            <label for="lastName"> Father Name *</label>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-2">
+            <input type="text" id="fatherName" formControlName="fatherName" />
+
+            <div *ngIf="tenantProfileForm.invalid" class="alert alert-danger">
+                <div *ngIf="fatherName.errors?.minlength">
+                    <span style="color:red"> FatherName is required. </span>
+                </div>
+
+                <div *ngIf="fatherName.errors?.minlength">
+                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.fatherName"> Length of FatherName is lesser than 5 chars.
+                    </span>
+                </div>
+
+                <div *ngIf="fatherName.errors?.maxlength">
+                    <span style="color:Red" ng-show="tenantProfileForm.fatherName.$error.fatherName"> Length of FatherName is more than 10 chars.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+    <!--FatherName Ends -->
+
     <!-----------------------PHONE-------------------->
-    
+
     <div class="row">
 
         <div class="col-sm-1">
         </div>
 
         <div class="col-sm-2">
-            <label for="phone"> Phone Number</label>
+            <label for="phone"> Phone Number * </label>
         </div>
 
         <div class="col-sm-2"></div>
@@ -100,58 +153,106 @@
     </div>
     <!--End Of Phone-->
 
+    <!-----------------------NumberOfFamily Members---------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-2">
+            <label for="familymembers"> NumberOfFamily Members </label>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2">
+            <select formControlName="familyMembers">
+                <!--   <option value="">Choose your state</option> -->
+                <option *ngFor="let familymembers of Familymembers" [ngValue]="familymembers"
+                    (change)="changeFamilymembers($event)">
+                    {{familymembers}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+    <!--NumberOfFamily Members-->
+
     <!-----------------------OFFICE ADDRESS-------------------->
 
+    <br>
     <div class="row">
 
         <div class="col-sm-1">
         </div>
 
         <div class="col-sm-2">
-            <label for="streetAddress"> OFFICE ADDRESS :</label>
+            <label for="streetAddress"> Office Address </label>
         </div>
 
         <div class="col-sm-2"></div>
-        
-        <div class="col-sm-4">
-            <input type="text" id="streetAddress" formControlName="streetAddress"/>Street Address
-        </div>
-
-        <div class="col-sm-3"></div>
-
-        <div class="col-sm-5"></div>
-
-        <div class="col-sm-4">
-            <input type="text" id="streetAddressLine2" formControlName="streetAddressLine2"/>Street Address Line-2
-        </div>
-
-        <div class="col-sm-3"></div>
-
-        <div class="col-sm-5"></div>
 
         <div class="col-sm-2">
+            <input type="text" id="streetAddress" formControlName="streetAddress" />Street Address
+        </div>
+
+        <div class="col-sm-1">
+            <input type="text" id="streetAddressLine2" formControlName="streetAddressLine2" />Street Address Line-2
+        </div>
+
+        <div class="col-sm-1">
             <input type="text" id="city" formControlName="city" />City
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <input type="text" id="state" formControlName="state" />State / Province
         </div>
 
-        <div class="col-sm-3"></div>
-
-        <div class="col-sm-5"></div>
-
-        <div class="col-sm-2">
+        <div class="col-sm-1">
             <input type="text" id="postal" formControlName="postal" />Postal / Zip Code
         </div>
 
-        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
         <select formControlName="country">
             <option value="">Choose your country</option>
             <option *ngFor="let country of Country" [ngValue]="country" (change)="changeCountry($event)">
                 {{country}}
             </option>
         </select>
-        <div class="col-sm-3"></div>
+    </div>
+
+    <!-----------------------PERMANENT ADDRESS-------------------->
+
+    <div formArrayName="permanentAddressArray">
+
+
+        <div class="col-sm-1">
+        </div>
+        <label for="streetAddress"> Permanent Address </label>
+
+        <div *ngFor="let permanentAddressArrayItem of permanentAddressArray.controls; let permanentAddressIndex=index">
+
+            <div [formGroupName]="permanentAddressIndex">
+
+                <label>
+                    Door Number * :
+                    <input type="text" formControlName="doornumber" />
+                </label>
+
+                <label>
+                    Street * :
+                    <input type="text" formControlName="street" />
+                </label>
+
+                <label>
+                    City * :
+                    <input type="text" formControlName="city" />
+                </label>
+
+                <label>
+                    ZipCode * :
+                    <input type="text" formControlName="zipCode" />
+                </label>
+            </div>
+        </div>
     </div>
 </form>
