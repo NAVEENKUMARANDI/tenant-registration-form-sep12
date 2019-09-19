@@ -1,0 +1,33 @@
+[
+    {
+        "salutions": "Mr",
+        "firstName": "Naveen",
+        "lastName": "Kumar",
+        "fatherName": "Andi",
+        "phone": "8754839837",
+        "familyMembers": "0",
+        "address": "No 60",
+        "streetAddress": "Perumal Kovil Street",
+        "streetAddressLine2": "Near Post Office",
+        "city": "Thiruvanamalai",
+        "state": "TamilNadu",
+        "postal": "606903",
+        "country": "INDIA"      
+    },
+
+    {
+        "salutions": "Mr",
+        "firstName": "Hari",
+        "lastName": "Prasad",
+        "fatherName": "Dat",
+        "phone": "9876543567",
+        "familyMembers": "3",
+        "address": "No 1",
+        "streetAddress": "Nithiyanadham Street",
+        "streetAddressLine2": "Near Phase 2",
+        "city": "Chennai",
+        "state": "TamilNadu",
+        "postal": "600007",
+        "country": "INDIA"
+    }
+]

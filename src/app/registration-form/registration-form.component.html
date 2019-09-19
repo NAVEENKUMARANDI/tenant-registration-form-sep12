@@ -51,11 +51,13 @@
                 </div>
 
                 <div *ngIf="firstName.errors?.minlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of FirstName is less than 5 chars. </span>
+                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of FirstName
+                        is less than 5 chars. </span>
                 </div>
 
                 <div *ngIf="firstName.errors?.maxlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of FirstName is more than 10 chars.
+                    <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName"> Length of FirstName
+                        is more than 10 chars.
                     </span>
                 </div>
             </div>
@@ -85,12 +87,14 @@
                 </div>
 
                 <div *ngIf="lastName.errors?.minlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.lastName"> Length of LastName is lesser than 5 chars.
+                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.lastName"> Length of LastName is
+                        lesser than 5 chars.
                     </span>
                 </div>
 
                 <div *ngIf="lastName.errors?.maxlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.lastName"> Length of LastName is more than 10 chars.</span>
+                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.lastName"> Length of LastName is
+                        more than 10 chars.</span>
                 </div>
             </div>
         </div>
@@ -119,12 +123,14 @@
                 </div>
 
                 <div *ngIf="fatherName.errors?.minlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.fatherName"> Length of FatherName is lesser than 5 chars.
+                    <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.fatherName"> Length of FatherName
+                        is lesser than 5 chars.
                     </span>
                 </div>
 
                 <div *ngIf="fatherName.errors?.maxlength">
-                    <span style="color:Red" ng-show="tenantProfileForm.fatherName.$error.fatherName"> Length of FatherName is more than 10 chars.</span>
+                    <span style="color:Red" ng-show="tenantProfileForm.fatherName.$error.fatherName"> Length of
+                        FatherName is more than 10 chars.</span>
                 </div>
             </div>
         </div>
@@ -191,33 +197,67 @@
 
         <div class="col-sm-2"></div>
 
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <input type="text" id="streetAddress" formControlName="streetAddress" />Street Address
         </div>
+        <div class="col-sm-3"></div>
+    </div>
 
-        <div class="col-sm-1">
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-4">
             <input type="text" id="streetAddressLine2" formControlName="streetAddressLine2" />Street Address Line-2
         </div>
 
-        <div class="col-sm-1">
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
             <input type="text" id="city" formControlName="city" />City
         </div>
 
-        <div class="col-sm-1">
+        <div class="col-sm-5"></div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
             <input type="text" id="state" formControlName="state" />State / Province
         </div>
 
-        <div class="col-sm-1">
-            <input type="text" id="postal" formControlName="postal" />Postal / Zip Code
-        </div>
+        <div class="col-sm-5"></div>
+    </div>
 
-        <div class="col-sm-1"></div>
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
+            <input type="text" id="postal" formControlName="postal" /> Postal / Zip Code
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2"></div>
         <select formControlName="country">
             <option value="">Choose your country</option>
             <option *ngFor="let country of Country" [ngValue]="country" (change)="changeCountry($event)">
                 {{country}}
             </option>
         </select>
+        <div class="col-sm-5"></div>
     </div>
 
     <!-----------------------PERMANENT ADDRESS-------------------->
