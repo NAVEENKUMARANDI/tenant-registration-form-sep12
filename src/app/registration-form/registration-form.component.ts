@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
 
+import { TenantServices } from '../../services/tenantServices';
+
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
@@ -29,12 +31,11 @@ export class RegistrationFormComponent implements OnInit {
     phone: ['', [Validators.required, Validators.maxLength(10)]],
     familyMembers: ['', [Validators.required]],
     address: ['', [Validators.required]],
-    areaCode: ['', [Validators.required]],
     streetAddress: ['', [Validators.required]],
     streetAddressLine2: ['', [Validators.required]],
     city: ['', [Validators.required]],
     state: ['', [Validators.required]],
-    postal: ['', [Validators.required]],
+    postal: ['', [Validators.required, Validators.maxLength(10)]],
     country: ['', [Validators.required]],
 
 
@@ -44,10 +45,13 @@ export class RegistrationFormComponent implements OnInit {
 
   permanentAddressFormGroup(): FormGroup {
     return this.fb.group({
-      doornumber: ['', [Validators.required]]
+      doornumber: ['', [Validators.required, Validators.maxLength(4)]],
+      street: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      zipCode: ['', [Validators.required]]
     })
   }
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private tenantService: TenantServices) { }
 
   ngOnInit() {
 
@@ -56,6 +60,7 @@ export class RegistrationFormComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.tenantProfileForm.value);
+    this.tenantService.saveTenant(this.tenantProfileForm.value);
   }
 
   get salutions() {
@@ -79,9 +84,6 @@ get fatherName(){
   get address() {
     return this.tenantProfileForm.get('address');
   }
-  get areaCode() {
-    return this.tenantProfileForm.get('areaCode');
-  }
   get streetAddress() {
     return this.tenantProfileForm.get('streetAddress');
   }
@@ -102,5 +104,11 @@ get fatherName(){
   }
   get permanentAddressArray() {
     return this.tenantProfileForm.get('permanentAddressArray') as FormArray;
+  }
+
+  addTenantRegistration() {
+    this.permanentAddressArray.push(
+      this.permanentAddressFormGroup()
+    );
   }
 }
