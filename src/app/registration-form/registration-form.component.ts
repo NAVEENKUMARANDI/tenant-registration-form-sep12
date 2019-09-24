@@ -30,7 +30,7 @@ export class RegistrationFormComponent implements OnInit {
     fatherName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
     phone: ['', [Validators.required, Validators.maxLength(10)]],
     familyMembers: ['', [Validators.required]],
-    address: ['', [Validators.required]],
+    // address: ['', [Validators.required]],
     streetAddress: ['', [Validators.required]],
     streetAddressLine2: ['', [Validators.required]],
     city: ['', [Validators.required]],
@@ -61,6 +61,7 @@ export class RegistrationFormComponent implements OnInit {
   onSubmit() {
     console.warn(this.tenantProfileForm.value);
     this.tenantService.saveTenant(this.tenantProfileForm.value);
+    console.log('Tenant Saved Successfully');
   }
 
   get salutions() {
@@ -81,9 +82,9 @@ get fatherName(){
   get familyMembers(){
     return this.tenantProfileForm.get('familyMembers');
   }
-  get address() {
-    return this.tenantProfileForm.get('address');
-  }
+  // get address() {
+  //   return this.tenantProfileForm.get('address');
+  // }
   get streetAddress() {
     return this.tenantProfileForm.get('streetAddress');
   }
