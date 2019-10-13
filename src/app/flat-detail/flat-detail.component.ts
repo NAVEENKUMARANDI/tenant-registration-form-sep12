@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, Validator, FormControl, Validators, FormGroup } from '@angular/forms';
+
+import { FlatDetailServices } from '../../service/flatdetailservice';
+
 @Component({
   selector: 'app-flat-detail',
   templateUrl: './flat-detail.component.html',
@@ -8,7 +11,7 @@ import { FormBuilder, Validator, FormControl, Validators, FormGroup } from '@ang
 })
 export class FlatDetailComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private flatdetailservice: FlatDetailServices) { }
 
   flatDetailPageProfileForm = this.fb.group({
     flatNumber: ['', [Validators.required]],
@@ -25,6 +28,12 @@ export class FlatDetailComponent implements OnInit {
   })
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.warn(this.flatDetailPageProfileForm.value);
+    this.flatdetailservice.saveFlatDetail(this.flatDetailPageProfileForm.value);
+    console.log('FlatDetail Saved Successfully');
   }
 
   get flatNumber() {
