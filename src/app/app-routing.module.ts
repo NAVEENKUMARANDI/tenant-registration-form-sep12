@@ -5,11 +5,13 @@ import { FamilyMemberComponent } from '../app/family-member/family-member.compon
 import { RegistrationFormComponent } from '../app/registration-form/registration-form.component';
 
 import { LoginPageComponent } from '../app/login-page/login-page.component';
+import { FlatDetailComponent } from '../app/flat-detail/flat-detail.component'; 
 
 const routes: Routes = [
   { path: 'family', component: FamilyMemberComponent },
-  { path: '', component: RegistrationFormComponent },
-  { path: 'login', component: LoginPageComponent}
+  { path: 'register', component: RegistrationFormComponent },
+  { path: 'login', component: LoginPageComponent},
+  { path: '', component: FlatDetailComponent}
 ];
 
 

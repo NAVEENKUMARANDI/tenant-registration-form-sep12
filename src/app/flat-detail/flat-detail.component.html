@@ -1,0 +1,180 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6">
+            <h2>Flat Details Page</h2>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</div>
+
+<form [formGroup]="flatDetailPageProfileForm" (ngSubmit)="onSubmit()">
+
+    <!-----------------------Flat Number-------------------->
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="flatNumber"> FlatNumber </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="flatNumber" formControlName="flatNumber" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Area In SquareFit------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="areaInSquareFit"> Area In SquareFit </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="areaInSquareFit" formControlName="areaInSquareFit" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Number Of Bed Rooms------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="numberOfBedRooms"> NumberOfBedRooms </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="numberOfBedRooms" formControlName="numberOfBedRooms" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Number Of Bath------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="numberOfBath"> NumberOfBath </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="numberOfBath" formControlName="numberOfBath" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------Check Box-------------------->
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="studyRoom"> StudyRoom </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="checkbox" formControlName="studyRoom" value="studyRoom" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-------------------Kitchen Check Box---------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="kitchen"> Kitchen </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="checkbox" formControlName="kitchen" value="kitchen" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Wardrobes------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="wardrobes"> Wardrobes </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="wardrobes" formControlName="wardrobes" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Facing------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="facing"> Facing </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="facing" formControlName="facing" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Monthly Rent---------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="monthlyRent"> Monthly Rent </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="monthlyRent" formControlName="monthlyRent" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Advance---------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="advance"> Advance </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="advance" formControlName="advance" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!------------------Floor Number---------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="floorNumber"> FloorNumber </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="floorNumber" formControlName="floorNumber" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</form>

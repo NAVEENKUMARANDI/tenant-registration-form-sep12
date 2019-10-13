@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FamilyMemberComponent } from './family-member/family-member.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { FlatDetailComponent } from './flat-detail/flat-detail.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     AppComponent,
     RegistrationFormComponent,
     FamilyMemberComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    FlatDetailComponent
   ],
   imports: [
     BrowserModule,
