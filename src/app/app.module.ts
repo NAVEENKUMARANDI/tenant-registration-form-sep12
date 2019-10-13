@@ -7,12 +7,16 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FamilyMemberComponent } from './family-member/family-member.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    FamilyMemberComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

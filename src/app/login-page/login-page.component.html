@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6">
+            <h2>Tenant Login Page</h2>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</div>
+
+<form [formGroup]="loginPageProfileForm" (ngSubmit)="onSubmit()">
+    <!-----------------UserName-------------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="userName"> UserName * </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="userName" formControlName="userName" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------Password-------------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="password"> Password * </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="password" id="password" formControlName="password" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-------------SUBMIT BUTTON------------->
+    <br>
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
+            <button type="submit" [disabled]="!loginPageProfileForm.valid">Submit</button>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------RESET------------------------>
+    <br>
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
+            <button type="reset">Reset</button>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</form>

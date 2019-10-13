@@ -11,6 +11,7 @@
 
 <form [formGroup]="tenantProfileForm" (ngSubmit)="onSubmit()">
 
+
     <!-----------------------SALUTIONS-------------------->
     <div class="container">
         <div class="row">
@@ -49,6 +50,23 @@
             <div class="col-sm-5"></div>
         </div>
 
+        <div *ngIf="tenantProfileForm.invalid" class="alert alert-danger">
+            <div *ngIf="firstName.errors?.lengthValidation">
+                <span style="color:blueviolet"> FirstName is required. </span>
+            </div>
+
+            <div *ngIf="firstName.errors?.minlength">
+                <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName">
+                    Length of FirstName is less than 5 chars. </span>
+            </div>
+
+            <div *ngIf="firstName.errors?.maxlength">
+                <span style="color:Red" ng-show="tenantProfileForm.firstName.$error.firstName">
+                    Length of FirstName is more than 10 chars.
+                </span>
+            </div>
+        </div>
+
         <!-----------------------LAST NAME-------------------->
 
         <div class="row">
@@ -69,6 +87,64 @@
         </div>
         <!--Last Name Ends -->
 
+        <div *ngIf="tenantProfileForm.invalid" class="alert alert-danger">
+            <div *ngIf="lastName.errors?.minlength">
+                <span style="color:blueviolet"> LastName is required. </span>
+            </div>
+
+            <div *ngIf="lastName.errors?.minlength">
+                <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.lastName">
+                    Length of LastName is lesser than 5 chars.
+                </span>
+            </div>
+
+            <div *ngIf="lastName.errors?.maxlength">
+                <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.lastName">
+                    Length of LastName is more than 10 chars.</span>
+            </div>
+        </div>
+
+        <!-----------------------PASSWORD-------------------->
+
+        <div class="row">
+
+            <div class="col-sm-1">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="password"> Password *</label>
+            </div>
+
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-2">
+                <input type="password" id="password" formControlName="password" />
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+        <!--Password Ends -->
+
+
+        <!-----------------------Confirm PASSWORD-------------------->
+
+        <div class="row">
+
+            <div class="col-sm-1">
+            </div>
+
+            <div class="col-sm-3">
+                <label for="confirmPassword"> Confirm Password *</label>
+            </div>
+
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-2">
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+        <!--Confirm Password Ends -->
+
         <!---------------Father Name------------------------>
         <div class="row">
 
@@ -87,6 +163,23 @@
             <div class="col-sm-5"></div>
         </div>
         <!--FatherName Ends -->
+
+        <div *ngIf="tenantProfileForm.invalid" class="alert alert-danger">
+            <div *ngIf="fatherName.errors?.minlength">
+                <span style="color:red"> FatherName is required. </span>
+            </div>
+
+            <div *ngIf="fatherName.errors?.minlength">
+                <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.fatherName"> 
+                    Length of FatherName is lesser than 5 chars.
+                </span>
+            </div>
+
+            <div *ngIf="fatherName.errors?.maxlength">
+                <span style="color:Red" ng-show="tenantProfileForm.fatherName.$error.fatherName"> 
+                    Length of FatherName is more than 10 chars.</span>
+            </div>
+        </div>
 
         <!-----------------------PHONE-------------------->
 

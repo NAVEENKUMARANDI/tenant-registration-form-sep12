@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
 
-import { TenantServices } from '../../services/tenantServices';
+import { TenantServices } from '../../service/tenantservice';
 
 @Component({
   selector: 'app-registration-form',
@@ -27,6 +27,8 @@ export class RegistrationFormComponent implements OnInit {
     salutions: ['', [Validators.required]],
     firstName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
     lastName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
+    password: ['', [Validators.required]],
+    confirmPassword: ['', [Validators.required]],
     fatherName: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(5)]],
     phone: ['', [Validators.required, Validators.maxLength(10)]],
     familyMembers: ['', [Validators.required]],
@@ -37,7 +39,6 @@ export class RegistrationFormComponent implements OnInit {
     state: ['', [Validators.required]],
     postal: ['', [Validators.required, Validators.maxLength(10)]],
     country: ['', [Validators.required]],
-
 
     permanentAddressArray: this.fb.array([])
   })
@@ -73,13 +74,19 @@ export class RegistrationFormComponent implements OnInit {
   get lastName() {
     return this.tenantProfileForm.get('lastName');
   }
-get fatherName(){
-  return this.tenantProfileForm.get('fatherName');
-}
+  get password() {
+    return this.tenantProfileForm.get('password');
+  }
+  get confirmPassword() {
+    return this.tenantProfileForm.get('confirmPassword');
+  }
+  get fatherName() {
+    return this.tenantProfileForm.get('fatherName');
+  }
   get phone() {
     return this.tenantProfileForm.get('phoneNumber');
   }
-  get familyMembers(){
+  get familyMembers() {
     return this.tenantProfileForm.get('familyMembers');
   }
   // get address() {
