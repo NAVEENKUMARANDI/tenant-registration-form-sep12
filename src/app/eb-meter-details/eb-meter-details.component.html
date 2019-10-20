@@ -1,0 +1,222 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6">
+            <h2>EB Meter Details Page</h2>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</div>
+
+<form [formGroup]="ebMeterDetailForm" (ngSubmit)="onSubmit()">
+
+    <!-----------------------Meter ID-------------------->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="meterID"> MeterID </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="meterID" formControlName="meterID" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------Currently Mapped FlatID-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="currentMappedFlatId"> Currently_Mapped_FlatID </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="currentMappedFlatId" formControlName="currentMappedFlatId" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------Months-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-2">
+            <label for="month"> Month </label>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2">
+            <select formControlName="month">
+                <!--   <option value="">Choose your state</option> -->
+                <option *ngFor="let month of monthList" [ngValue]="month" (change)="changeMonth($event)">
+                    {{month}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------Year-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-2">
+            <label for="year"> Year </label>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2">
+            <select formControlName="year">
+                <!--   <option value="">Choose your state</option> -->
+                <option *ngFor="let year of yearList" [ngValue]="years" (change)="changeYear($event)">
+                    {{year}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-------------------------Date------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-3">
+            <label for="billGeneratedDate"> Bill Generated Date </label>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-4">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker1" [formControl]="billGeneratedDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <!-----------------------Current Reading-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="currentReading"> Current Reading </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="currentReading" formControlName="currentReading" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------LastMonth Reading-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="lastMonthReading"> LastMonth Reading </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="lastMonthReading" formControlName="lastMonthReading" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------Charges-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="charges"> Charges </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="charges" formControlName="charges" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+
+    <!-----------------------Security Deposit-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="securityDeposit"> Security Deposit </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="securityDeposit" formControlName="securityDeposit" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+    <div *ngIf="securityDeposit.errors?.minlength">
+        <span style="color:Red" ng-show="ebMeterDetailForm.securityDeposit.$error.securityDeposit">
+            Length of Security Deposit is less than 5 numbers. </span>
+    </div>
+
+    <div *ngIf="securityDeposit.errors?.maxlength">
+        <span style="color:Red" ng-show="ebMeterDetailForm.securityDeposit.$error.securityDeposit">
+            Length of security Deposit is more than 10 numbers.
+        </span>
+    </div>
+
+    <!-----------------------Discount Applied-------------------->
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="discountApplied"> Discount Applied </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="discountApplied" formControlName="discountApplied" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+    <div *ngIf="discountApplied.errors?.minlength">
+        <span style="color:Red" ng-show="ebMeterDetailForm.discountApplied.$error.discountApplied">
+            Length of DiscountApplied is less than 4 numbers. </span>
+    </div>
+
+    <div *ngIf="discountApplied.errors?.maxlength">
+        <span style="color:Red" ng-show="ebMeterDetailForm.discountApplied.$error.discountApplied">
+            Length of DiscountApplied is more than 8 numbers.
+        </span>
+    </div>
+
+    <!---------------SUBMIT Button----------------->
+    <br>
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
+            <button type="submit">Submit</button>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</form>

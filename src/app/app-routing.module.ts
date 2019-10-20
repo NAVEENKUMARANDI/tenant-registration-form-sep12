@@ -6,12 +6,14 @@ import { RegistrationFormComponent } from '../app/registration-form/registration
 
 import { LoginPageComponent } from '../app/login-page/login-page.component';
 import { FlatDetailComponent } from '../app/flat-detail/flat-detail.component'; 
+import { EbMeterDetailsComponent } from '../app/eb-meter-details/eb-meter-details.component';
 
 const routes: Routes = [
   { path: 'family', component: FamilyMemberComponent },
   { path: 'register', component: RegistrationFormComponent },
   { path: 'login', component: LoginPageComponent},
-  { path: '', component: FlatDetailComponent}
+  { path: 'flatdetail', component: FlatDetailComponent},
+  { path: '', component: EbMeterDetailsComponent}
 ];
 
 
