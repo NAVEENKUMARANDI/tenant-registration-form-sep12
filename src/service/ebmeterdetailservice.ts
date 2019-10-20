@@ -11,8 +11,8 @@ export interface Ebmeter {
     month: string,
     year: number,
     billGeneratedDate: Date,
-    readingCurrent: string,
-    readingLastMonth: string,
+    currentReading: number,
+    lastMonthReading: number,
     charges: number,
     securityDeposit: number,
     discountApplied: number
