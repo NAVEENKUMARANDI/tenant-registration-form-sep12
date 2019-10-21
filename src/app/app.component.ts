@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tenant-registration-form';
+
+  navLinks = [
+    {
+      path: '/family',
+      label: 'Family Member'
+    },
+
+    {
+      path: '/register',
+      label: 'Register Form'
+    },
+
+    {
+      path: '/flatownerdetail',
+      label: 'FlatOwner Detail'
+    }
+  ];
 }

@@ -7,13 +7,17 @@ import { RegistrationFormComponent } from '../app/registration-form/registration
 import { LoginPageComponent } from '../app/login-page/login-page.component';
 import { FlatDetailComponent } from '../app/flat-detail/flat-detail.component'; 
 import { EbMeterDetailsComponent } from '../app/eb-meter-details/eb-meter-details.component';
+import { FlatOwnerDetailComponent } from '../app/flat-owner-detail/flat-owner-detail.component';
+import { TenantMainMenuComponent } from '../app/tenant-main-menu/tenant-main-menu.component';
 
 const routes: Routes = [
   { path: 'family', component: FamilyMemberComponent },
   { path: 'register', component: RegistrationFormComponent },
-  { path: 'login', component: LoginPageComponent},
+  { path: '', component: LoginPageComponent},
   { path: 'flatdetail', component: FlatDetailComponent},
-  { path: '', component: EbMeterDetailsComponent}
+  { path: 'ebmeterdetail', component: EbMeterDetailsComponent},
+  { path: 'flatownerdetail', component: FlatOwnerDetailComponent},
+  { path: 'tenantmainmenu', component: TenantMainMenuComponent }
 ];
 
 

@@ -1,0 +1,210 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6">
+            <h2>Flat Owner Detail</h2>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</div>
+
+<form [formGroup]="flatOwnerDetailForm" (ngSubmit)="onSubmit()">
+
+    <!-----------------------FIRST NAME-------------------->
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3">
+            <label for="firstName"> First Name * </label>
+        </div>
+
+        <div class="col-sm-1"> </div>
+
+        <div class="col-sm-2">
+            <input type="text" id="firstName" formControlName="firstName" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <div *ngIf="flatOwnerDetailForm.invalid" class="alert alert-danger">
+        <div *ngIf="firstName.errors?.lengthValidation">
+            <span style="color:blueviolet"> FirstName is required. </span>
+        </div>
+
+        <div *ngIf="firstName.errors?.minlength">
+            <span style="color:Red" ng-show="flatOwnerDetailForm.firstName.$error.firstName">
+                Length of FirstName is less than 5 chars. </span>
+        </div>
+
+        <div *ngIf="firstName.errors?.maxlength">
+            <span style="color:Red" ng-show="flatOwnerDetailForm.firstName.$error.firstName">
+                Length of FirstName is more than 10 chars.
+            </span>
+        </div>
+    </div>
+
+    <!-----------------------FATHER NAME-------------------->
+
+    <div class="row">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-3">
+            <label for="fatherName"> Father Name *</label>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-2">
+            <input type="text" id="fatherName" formControlName="fatherName" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <div *ngIf="flatOwnerDetailForm.invalid" class="alert alert-danger">
+        <div *ngIf="fatherName.errors?.minlength">
+            <span style="color:blueviolet"> FatherName is required. </span>
+        </div>
+
+        <div *ngIf="fatherName.errors?.minlength">
+            <span style="color:Red" ng-show="flatOwnerDetailForm.fatherName.$error.fatherName">
+                Length of FatherName is lesser than 5 chars.
+            </span>
+        </div>
+
+        <div *ngIf="fatherName.errors?.maxlength">
+            <span style="color:Red" ng-show="flatOwnerDetailForm.fatherName.$error.fatherName">
+                Length of FatherName is more than 10 chars.</span>
+        </div>
+    </div>
+    <!--Last Name Ends -->
+
+    <!---------------------Email ID---------------------->
+    <br>
+    <div class="row">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-3">
+            <label for="emailID"> Email ID *</label>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-2">
+            <input type="text" id="emailID" formControlName="emailID" />
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <!-----------------------PHONE-------------------->
+    <br>
+    <div class="row">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-2">
+            <label for="phone"> Phone Number * </label>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-3">
+            <input type="text" id="phone" formControlName="phone" maxlength="10" />
+        </div>
+
+        <div class="col-sm=4"></div>
+    </div>
+    <!--End Of Phone-->
+
+    <!-----------------------TelePhone Number-------------------->
+
+    <br>
+    <div class="row">
+
+        <div class="col-sm-1">
+        </div>
+
+        <div class="col-sm-2">
+            <label for="telePhoneNumber"> TelePhone-Number * </label>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-3">
+            <input type="text" id="telePhoneNumber" formControlName="telePhoneNumber" />
+        </div>
+
+        <div class="col-sm=4"></div>
+    </div>
+    <!--TelePhone Number-->
+
+    <!---------------------PERMANENT ADDRESS------------------>
+    <br>
+    <div formArrayName="permanentAddressArray">
+
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+
+            <div class="col-sm-2">
+                <label for="streetAddress"> Permanent Address </label>
+            </div>
+
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-2">
+                <button (click)="addTenantRegistration()">Add Permanent Address</button>
+            </div>
+
+            <div class="col-sm-5"></div>
+        </div>
+
+        <div class="row"
+            *ngFor="let permanentAddressArrayItem of permanentAddressArray.controls; let permanentAddressIndex=index">
+
+            <br>
+            <div [formGroupName]="permanentAddressIndex">
+
+                <label>
+                    Door Number * :
+                    <input type="text" formControlName="doornumber" maxlength="4" />
+                </label>
+
+                <label>
+                    Street * :
+                    <input type="text" formControlName="street" />
+                </label>
+
+                <label>
+                    City * :
+                    <input type="text" formControlName="city" />
+                </label>
+
+                <label>
+                    ZipCode * :
+                    <input type="text" formControlName="zipCode" maxlength="10" />
+                </label>
+            </div>
+            <!---Closing FormGroup DIV--->
+        </div>
+        <!-------Closing Row DIV---------->
+    </div>
+    <!------Closing FormArray DIV--------------->
+
+    <!-------------SUBMIT BUTTON------------->
+    <br>
+    <div class="row">
+
+        <div class="col-sm-5"></div>
+
+        <div class="col-sm-2">
+            <button type="submit" [disabled]="!flatOwnerDetailForm.valid">Submit</button>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+</form>

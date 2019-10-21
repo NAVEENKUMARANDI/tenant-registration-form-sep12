@@ -15,6 +15,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { MaterialModule } from '../../material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlatOwnerDetailComponent } from './flat-owner-detail/flat-owner-detail.component';
+import { TenantMainMenuComponent } from './tenant-main-menu/tenant-main-menu.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FamilyMemberComponent,
     LoginPageComponent,
     FlatDetailComponent,
-    EbMeterDetailsComponent
+    EbMeterDetailsComponent,
+    FlatOwnerDetailComponent,
+    TenantMainMenuComponent
   ],
   imports: [
     BrowserModule,
