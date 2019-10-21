@@ -126,7 +126,7 @@
 
 
         <!-----------------------Confirm PASSWORD-------------------->
-
+        <br>
         <div class="row">
 
             <div class="col-sm-1">
@@ -146,6 +146,7 @@
         <!--Confirm Password Ends -->
 
         <!---------------Father Name------------------------>
+        <br>
         <div class="row">
 
             <div class="col-sm-1">
@@ -170,19 +171,19 @@
             </div>
 
             <div *ngIf="fatherName.errors?.minlength">
-                <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.fatherName"> 
+                <span style="color:Red" ng-show="tenantProfileForm.lastName.$error.fatherName">
                     Length of FatherName is lesser than 5 chars.
                 </span>
             </div>
 
             <div *ngIf="fatherName.errors?.maxlength">
-                <span style="color:Red" ng-show="tenantProfileForm.fatherName.$error.fatherName"> 
+                <span style="color:Red" ng-show="tenantProfileForm.fatherName.$error.fatherName">
                     Length of FatherName is more than 10 chars.</span>
             </div>
         </div>
 
         <!-----------------------PHONE-------------------->
-
+        <br>
         <div class="row">
 
             <div class="col-sm-1">
